@@ -116,14 +116,13 @@ function Order({ closeHour, openHour }) {
 
 function Pizza({ pizzaObj }) {
   // we have object from Menu component
-  if (pizzaObj.soldOut) return null;
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h1>{pizzaObj.name}</h1>
         <p>{pizzaObj.ingredients}</p>
-        <soan>{pizzaObj.price}</soan>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
   );
